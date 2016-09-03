@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      // this must be set absolutely before any other script on the app is loaded for IE7
+      document.domain = 'twitter.com';
+    </script>
+
+    <script>if(window.top!==window.self){document.write="";window.top.location=window.self.location;setTimeout(function(){document.body.innerHTML=""},1);window.self.onload=function(){document.body.innerHTML=""}};</script>
+
+    <link href="/phoenix/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script type="text/javascript" charset="utf-8">
+      if (!window.twttr) {
+        window.twttr = window.twttr || {};
+      }
+
+      twttr.payload = {};
+      twttr.payload["conditionalTemplates"] = {};
+      twttr.loggedIn = true;
+        twttr.currentUserScreenName = 'renatojensen';
+      twttr.pageLocale = 'en';
+      twttr.languages = [{"code":"it","name_en":"Italian","name":"Italiano"},{"code":"es","name_en":"Spanish","name":"Espa\u00f1ol"},{"code":"en","name_en":"English","name":"English"},{"code":"ko","name_en":"Korean","name":"\ud55c\uad6d\uc5b4"},{"code":"fr","name_en":"French","name":"fran\u00e7ais"},{"code":"de","name_en":"German","name":"Deutsch"},{"code":"ja","name_en":"Japanese","name":"\u65e5\u672c\u8a9e"}];
+      twttr._initialDeciderFeatures = {"tweet_stream_favorites":1,"people_stream_friends":1,"promo_component":1,"tweet_stream_list":1,"flock":1,"tweet_stream_mentions_polling":1,"html5Routing":1,"contact_import_stream":1,"list_stream_memberships":1,"phoenix_first_time":1,"whotofollow_recommendations":1,"tweet_stream_retweets_by_you":1,"inline_media_component":1,"geo_show_similar_places":1,"tweet_streams_polling":1,"list_stream_own_lists":1,"in_reply_to_component":1,"people_streams":1,"people_stream_people_search":1,"tweet_stream_retweets_by_you_polling":1,"tweet_stream_user_polling":1,"tweet_stream_mentions":1,"tweet_stream_user":1,"tweet_streams":1,"tweet_geo_component":1,"phoenix_scribe":1,"tweet_stream_search":1,"dashboard_activity_following":1,"people_stream_list_followers":1,"retweeters_component":1,"more_lists_component":1,"place_users_stream":1,"message_stream":1,"dashboard_activity_favorites":1,"dashboard_activity_listed":1,"tweet_stream_home":1,"phoenix_autocomplete_place_trigger_words":1,"list_streams":1,"tweet_stream_your_tweets_retweeted_polling":1,"tweet_stream_list_polling":1,"tweet_stream_retweets_by_others":1,"phoenix_puffin":1,"people_stream_follower_requests":1,"tweet_stream_home_polling":1,"trends_component":1,"tweet_stream_your_tweets_retweeted":1,"dashboard_activity_followers":1,"place_people_component":1,"list_stream_subscriptions":1,"place_tweets_component":1,"tweet_stream_retweets_by_others_polling":1,"geo_more_places":1,"people_stream_list_members":1,"whotofollow_similarities":1,"tweet_stream_search_polling":1,"japanese_ad_component":1,"infinite_scroll":1,"tweet_stream_favorites_polling":1,"geo_allow_set_location_manually":1,"people_stream_followers":1,"recent_tweets_component":1,"suggestion_categories_streams":1,"related_tweets_component":1,"conversations":1,"geo_place_creation":1,"phoenix_autocomplete":1,"onebox_user_search":1,"newest_list_members_component":1,"geo_ui":1,"geo_ui_autocomplete":1};
+      twttr._initialAbDeciderBuckets = {"welcome_follows-16":{"experiment_key":"welcome_follows-16","bucket":"control","version":4},"whotofollow_topnav-17":{"experiment_key":"whotofollow_topnav-17","bucket":"control","version":4}};
+    </script>
+
+    <title>Twitter</title>
+    <script>
+      var TIME = +new Date;
+      if (!window.console) {
+        var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml",
+          "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
+        window.console = {};
+        for (var i = 0; i < names.length; ++i)
+          window.console[names[i]] = function() {}
+      }
+    </script>
+
+    <link rel="stylesheet" href="http://a4.twimg.com/a/1291743327/stylesheets/phoenix.bundle.css" type="text/css" media="screen" />
+    <noscript>
+        <meta http-equiv=refresh content="0; URL=/?_twitter_noscript=1" />
+      </noscript>
+
+    <!-- basic RSS hoopla -->
+      <link rel="http://oexchange.org/spec/0.8/rel/related-target" href="http://twitter.com/oexchange.xrd" type="application/xrd+xml" />
+      <link rel="alternate" href="http://twitter.com/favorites/173014037.rss" title="Your Twitter Favorites" type="application/rss+xml" />
+    <!--
+    this MUST be the last include before the closing <head> tag
+    http://code.google.com/intl/en-US/apis/analytics/docs/tracking/asyncTracking.html
+    -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30775-6']);
+  _gaq.push(
+    ['_trackPageview'],
+    ['_setDomainName', 'twitter.com']
+  );
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  }());
+
+  twttr.trackPageView = function(pathName) {
+    var event = ['_trackPageview'];
+    if (pathName) {
+      event.push(pathName);
+    }
+    _gaq.push(event);
+  };
+
+</script>
+  </head>
+  <body class="en user-style-twttr loading-body ">
+
+    <div id="doc">
+
+      <div id="top-stuff">
+        <div id="banners" style="clear:both;">
+          </div>
+        <div id="top-bar-outer">
+          <div id="top-bar-bg"></div>
+          <div id="top-bar">
+            <div class="top-bar-inside">
+              <div class="static-links">
+                <div id="logo">
+
+                  <a href="/">Twitter</a>
+                </div>
+                <form id="search-form" action="/search" method="GET">
+                  <span class="glass"><i></i></span>
+                  <input value="" placeholder="Search" name="q" id="search-query" type="text" />
+                </form>
+                <div id="global-nav">
+                  <ul>
+
+                    <li id="global-nav-home"><a href="/">Home</a></li>
+                      <li id="global-nav-profile"><a href="/renatojensen">Profile</a></li>
+                      <li id="global-nav-messages"><a href="/messages">Messages</a></li>
+                      </ul>
+                </div>
+                <div id="sections"></div>
+              </div>
+
+              <div class="active-links">
+                <div id="session" class="loggedin">
+                    <a class="profile-links" href="#">
+                      <span id="profile-image"><img src="http://a1.twimg.com/profile_images/1131812097/tw_normal.png" /></span>
+                    </a>
+                    <span id="screen-name">
+                      renatojensen
+                    </span>
+                    <div class="dropdown">
+
+                      <ul class="user-dropdown">
+  <li><a href="/settings/account">Settings</a></li>
+    <li><a href="http://support.twitter.com">Help</a></li>
+    <li><a href="/#!/who_to_follow">Who to follow</a></li>
+
+    <li><a href="/account/use_phx?setting=false&amp;format=html">Leave preview</a></li>
+    <li>
+
+      <form class="signout-form" action="/logout" method="POST">
+        <a class="signout-button" href="#">Sign out</a>
+        <input type='hidden' value='65b5153fffc0e44d5c55233462a81771b7f72624' name='authenticity_token'/>
+      </form>
+    </li>
+
+    </ul>
+                    </div>
+                  </div>
+
+                  <span class="vr"></span>
+                  <a id="new-tweet" title="New Tweet"><span>New Tweet</span></a>
+                </div>
+            </div>
+          </div>
+          <div id="message-drawer"></div>
+        </div>
+      </div>
+
+      <div id="page-outer">
+        <div id="page-container" >
+
+              <div class="main-content">
+  </div>
+<div class="dashboard">
+  </div>
+
+<div class="details-pane-outer">
+  <div class="details-pane-shell">
+
+    <div class="details-pane">
+      
+    </div>
+  </div>
+</div>
+
+                </div>
+      </div>
+
+      <div id="message-notifications"></div>
+    </div>
+
+    <script type="text/javascript">
+if(!twttr.loggedIn && location.href.indexOf('#!')==-1) {
+  document.body.className = document.body.className.replace('user-style-twttr loading-body', 'front-page');
+}
+</script>
+
+<script text='text/javascript' src="http://a4.twimg.com/a/1291743327/javascripts/base.bundle.js"></script>
+<script src="/easyXDM.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+  $LAB.setGlobalDefaults({
+    AlwaysPreserveOrder: true,
+    UsePreloading: false,
+    UseLocalXHR: false,
+    UseCachePreload: false
+  });
+
+  if (!window.twttr) {
+    window.twttr = window.twttr || {};
+  }
+
+  twttr.appStartTime = new Date().getTime();
+
+  twttr.remoteIP = '189.32.225.127';
+  twttr.requestFullCity = 'br,27,sorocaba';
+
+  twttr.loaded = (function() {
+    var waitingFor = 2;
+    return function () {
+      waitingFor--;
+
+      if (waitingFor === 0) {
+
+        // Manually trigger ready event, avoiding race condition where it never fires due to iframe thingy
+        // This should be safe based on how our script loading is done
+        jQuery.ready();
+        twttr.setup();
+      }
+    };
+  }());
+
+
+  /* -------------------- Autocomplete place data from CDN -------------------- */
+
+  twttr.placeDataPrefix = "http://geo.l3.twitter.com/places/autocomplete_places-";
+
+  /* -------------------- Initialize API Method -------------------- */
+
+  function _initAPI() {
+
+    twttr.anywhere.api.initialize();
+
+    twttr.API = {};
+
+    twttr.aug(twttr.API, twttr.anywhere.api.models);
+    twttr.aug(twttr.API, {
+      globalEvents: twttr.anywhere.api.globalEvents
+    });
+
+    twttr.API.setConfig = twttr.anywhere.api.updateConfig;
+    twttr.API.getConfig = function() {
+      return twttr.anywhere.api.config;
+    };
+
+    if (!twttr.API.util) {
+      twttr.API.util = {};
+    }
+
+    twttr.aug(twttr.API.util, twttr.anywhere.api.util);
+
+    if (!twttr.API._requestCache) {
+      twttr.API._requestCache = twttr.anywhere.api.cache;
+    }
+
+    twttr.API.setConfig({
+      cacheObjects: true,
+      postAuthenticityToken: '65b5153fffc0e44d5c55233462a81771b7f72624'
+    });
+
+    if ( twttr.currentUserScreenName ) {
+      twttr.API._requestCache.inject("account/verify_credentials", [{}], {"follow_request_sent":false,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1291163542\/images\/themes\/theme14\/bg.gif","favourites_count":0,"created_at":"Sat Jul 31 05:21:31 +0000 2010","profile_image_url":"http:\/\/a1.twimg.com\/profile_images\/1131812097\/tw_normal.png","description":"","friends_count":33,"profile_sidebar_fill_color":"0a0c4f","status":{"coordinates":null,"created_at":"Tue Dec 07 15:20:57 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12164666599931904","contributors":null,"retweet_count":0,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"geo":null,"retweeted":false,"id":12164666599931904,"text":"Indo pra Nostravamus terminar esse trabalho fedido de ED2 estudar pra provinha amanh\u00e3! #Partiu"},"verified":false,"profile_background_tile":true,"screen_name":"renatojensen","profile_sidebar_border_color":"194b73","show_all_inline_media":false,"listed_count":1,"geo_enabled":true,"location":"Sorocaba, SP","id_str":"173014037","time_zone":"Brasilia","profile_background_color":"131516","contributors_enabled":false,"lang":"en","protected":false,"url":null,"profile_text_color":"127394","name":"Renato J. F.","statuses_count":148,"profile_use_background_image":true,"followers_count":38,"id":173014037,"states":{"pending_email":false,"detached_email":false,"suspended":false,"bouncing_email":false,"needs_employee_email_update":false},"following":false,"notifications":false,"utc_offset":-10800,"profile_link_color":"009999"}, 1);
+      twttr.API._requestCache.inject("statuses/home_timeline", [{'contributor_details': true, 'include_entities': 1}], [{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 17:52:08 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12202714033299456","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"contributors_enabled":false,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/86562452\/free_twitter_designer.jpg","favourites_count":7,"created_at":"Tue May 26 01:03:52 +0000 2009","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1044754620\/bowsrt_normal.JPG","description":"Venho do surfe, que tem uma malandragem, que tem g\u00edrias, papos maneiros. Onde \u00e9 a festa? Com o Feffy a festa \u00e9 BEM AQUI.","profile_sidebar_fill_color":"dbd4d4","show_all_inline_media":false,"follow_request_sent":false,"profile_background_tile":false,"screen_name":"Feannor","geo_enabled":false,"friends_count":106,"profile_sidebar_border_color":"000000","statuses_count":5748,"location":"","id_str":"42529765","listed_count":4,"time_zone":"Brasilia","profile_background_color":"ffffff","lang":"en","protected":false,"url":null,"verified":false,"profile_text_color":"000000","name":"Antonio Z. Junior","profile_use_background_image":true,"followers_count":127,"id":42529765,"following":true,"notifications":false,"utc_offset":-10800,"profile_link_color":"93A644"},"geo":null,"retweeted":false,"id":12202714033299456,"text":"Na minha janela, eu escuto v\u00e1rias vozes de crian\u00e7as gritando \"CHUVA-CHUVA-CHUVA-CHUVA\" eu gosto .-."},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 17:46:03 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12201183384969216","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"follow_request_sent":false,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/174644870\/maaaaaaaary.jpg","favourites_count":0,"created_at":"Fri Aug 14 00:15:36 +0000 2009","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1133389300\/gggggab_normal.jpg","description":"","statuses_count":348,"geo_enabled":false,"profile_sidebar_fill_color":"ffb300","profile_background_tile":false,"screen_name":"GabrielaRamires","contributors_enabled":false,"profile_sidebar_border_color":"ff001a","listed_count":5,"show_all_inline_media":false,"verified":false,"location":"","id_str":"65510115","time_zone":"Santiago","profile_background_color":"000000","lang":"en","protected":true,"url":null,"profile_text_color":"d91140","name":"Gabriela Ramires","profile_use_background_image":true,"followers_count":88,"id":65510115,"following":true,"notifications":false,"utc_offset":-14400,"friends_count":97,"profile_link_color":"ff3d50"},"geo":null,"retweeted":false,"id":12201183384969216,"text":"trabalhar depois de quase ter morrido na estrada \u00e9 alucinante. O Honda Civic virou carro pra duas pessoas apenas."},{"entities":{"urls":[{"indices":[74,101],"expanded_url":null,"url":"http:\/\/bit.ly\/wowexpansion4"}],"user_mentions":[],"hashtags":[]},"coordinates":null,"created_at":"Tue Dec 07 17:32:33 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"\u003Ca href=\"http:\/\/www.brizzly.com\" rel=\"nofollow\"\u003EBrizzly\u003C\/a\u003E","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12197786816614400","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"statuses_count":1253,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/105355452\/PC_Gamer_Twitter_02.png","favourites_count":0,"created_at":"Tue Oct 14 11:19:09 +0000 2008","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/932843912\/PCGamer_88px_normal.png","description":"The global authority on PC games.","contributors_enabled":false,"geo_enabled":false,"profile_sidebar_fill_color":"e6e6e6","profile_background_tile":false,"screen_name":"PC_Gamer","follow_request_sent":false,"profile_sidebar_border_color":"939598","show_all_inline_media":false,"verified":false,"friends_count":6048,"location":"Bath","id_str":"16736535","time_zone":"London","profile_background_color":"ffffff","listed_count":527,"lang":"en","protected":false,"url":"http:\/\/www.pcgamer.com","profile_text_color":"000f18","name":"PC Gamer","profile_use_background_image":true,"followers_count":9412,"id":16736535,"following":true,"notifications":false,"utc_offset":0,"profile_link_color":"dc1e25"},"geo":null,"retweeted":false,"id":12197786816614400,"text":"Blizzard say that the next WoW expansion will likely add a new continent: http:\/\/bit.ly\/wowexpansion4"},{"entities":{"urls":[],"hashtags":[],"user_mentions":[{"indices":[3,13],"screen_name":"andrelspp","id_str":"41186828","name":"Andre Luiz ","id":41186828},{"indices":[15,23],"screen_name":"Feannor","id_str":"42529765","name":"Antonio Z. Junior","id":42529765}]},"coordinates":null,"created_at":"Tue Dec 07 17:21:49 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12195086221705216","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"verified":false,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/86562452\/free_twitter_designer.jpg","favourites_count":7,"created_at":"Tue May 26 01:03:52 +0000 2009","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1044754620\/bowsrt_normal.JPG","description":"Venho do surfe, que tem uma malandragem, que tem g\u00edrias, papos maneiros. Onde \u00e9 a festa? Com o Feffy a festa \u00e9 BEM AQUI.","profile_sidebar_fill_color":"dbd4d4","show_all_inline_media":false,"listed_count":4,"geo_enabled":false,"profile_background_tile":false,"screen_name":"Feannor","profile_sidebar_border_color":"000000","contributors_enabled":false,"location":"","id_str":"42529765","time_zone":"Brasilia","profile_background_color":"ffffff","lang":"en","statuses_count":5747,"protected":false,"url":null,"profile_text_color":"000000","name":"Antonio Z. Junior","follow_request_sent":false,"profile_use_background_image":true,"followers_count":127,"id":42529765,"following":true,"notifications":false,"utc_offset":-10800,"friends_count":106,"profile_link_color":"93A644"},"retweeted_status":{"entities":{"urls":[],"hashtags":[],"user_mentions":[{"indices":[0,8],"screen_name":"Feannor","id_str":"42529765","name":"Antonio Z. Junior","id":42529765}]},"coordinates":null,"created_at":"Tue Dec 07 03:08:28 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":11979782220677120,"favorited":false,"source":"\u003Ca href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\"\u003ETweetDeck\u003C\/a\u003E","in_reply_to_screen_name":"Feannor","in_reply_to_status_id_str":"11979782220677120","id_str":"11980333884903424","contributors":null,"retweet_count":null,"in_reply_to_user_id":42529765,"in_reply_to_user_id_str":"42529765","user":{"verified":false,"profile_background_image_url":"http:\/\/a3.twimg.com\/profile_background_images\/58826989\/noite.jpg","favourites_count":1,"created_at":"Tue May 19 19:21:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/325967483\/OgAAAJdKeCFai6oOaCd-veTgQ1yWGuS2qMEDvqWMsdW5_ZpzNckKthdHEBW-Sc_e_nj6H3fhBIGLiAwNQQXn4MHFf7AAm1T1UJIKRuhP8IVGtSEU71EMjZ6XnSDo_normal.jpg","description":"It's your fucking nightmare ;D","profile_sidebar_fill_color":"99CC33","show_all_inline_media":false,"listed_count":4,"geo_enabled":false,"profile_background_tile":false,"screen_name":"andrelspp","profile_sidebar_border_color":"829D5E","contributors_enabled":false,"location":"Presidente Prudente ","id_str":"41186828","time_zone":"Santiago","profile_background_color":"352726","lang":"en","statuses_count":5140,"protected":false,"url":null,"profile_text_color":"3E4415","name":"Andre Luiz ","follow_request_sent":false,"profile_use_background_image":true,"followers_count":162,"id":41186828,"following":false,"notifications":false,"utc_offset":-14400,"friends_count":210,"profile_link_color":"D02B55"},"geo":null,"retweeted":false,"id":11980333884903424,"text":"@Feannor  U CURTO BLIND GUARDIAN, ANGRA SHAMAN, IRON MEBEJAA?"},"geo":null,"retweeted":false,"id":12195086221705216,"text":"RT @andrelspp: @Feannor  U CURTO BLIND GUARDIAN, ANGRA SHAMAN, IRON MEBEJAA?"},{"entities":{"urls":[],"hashtags":[{"indices":[41,53],"text":"EstudandoIA"}],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 16:58:05 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12189110261252096","contributors":null,"retweet_count":0,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"contributors_enabled":false,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/176617816\/twitter2.jpg","favourites_count":0,"created_at":"Mon Nov 29 18:22:05 +0000 2010","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1178569948\/imagem_normal.JPG","description":"","listed_count":0,"profile_sidebar_fill_color":"ffffff","profile_background_tile":false,"screen_name":"henrietehi","statuses_count":46,"profile_sidebar_border_color":"eeeeee","location":"Valinhos, SP","id_str":"221090094","time_zone":"Brasilia","profile_background_color":"B2DFDA","lang":"en","verified":false,"friends_count":51,"protected":false,"url":null,"follow_request_sent":false,"profile_text_color":"333333","name":"Henriete H. Iamarino","show_all_inline_media":false,"geo_enabled":false,"profile_use_background_image":true,"followers_count":27,"id":221090094,"following":false,"notifications":false,"utc_offset":-10800,"profile_link_color":"93A644"},"geo":null,"retweeted":false,"id":12189110261252096,"text":"Aiiiii essa faculdade ta me matandooo!!! #EstudandoIA"},{"favorited":false,"in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12174010024464384","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"source":"web","in_reply_to_user_id_str":null,"user":{"follow_request_sent":false,"profile_sidebar_border_color":"eb59e1","friends_count":145,"verified":false,"location":"S\u00e3o Miguel Arcanjo","id_str":"56813846","time_zone":"Brasilia","profile_background_color":"b0f9fc","show_all_inline_media":false,"listed_count":5,"lang":"en","geo_enabled":true,"url":null,"profile_text_color":"e6537d","profile_use_background_image":true,"followers_count":227,"contributors_enabled":false,"following":true,"notifications":false,"profile_link_color":"1aff05","protected":false,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/125239014\/OgAAADt-uasRCe-fwPDFG91rrqvdLM3ebkOTnOkP-HabcSpxq0XPx1jlim1UuN7zy9XGqS92qq39e6JWL-olgqvdkXMAm1T1UC-01uomS-7ocHlc8WTh0qt1W-8h.jpg","favourites_count":5,"created_at":"Tue Jul 14 20:56:42 +0000 2009","profile_image_url":"http:\/\/a2.twimg.com\/profile_images\/1183474674\/OgAAAJN2ZkqvpCixhqhRkQ0nKyOwn709OZ6Wmt-4QBXwevxJyTvC5ZQX0ghsgeuK0ynwe5xJf_Ma5Och5UNbTRBgSB4Am1T1ULk1SX780gOZKzCq5v-mXtZOx7_D_normal.jpg","description":"Baixinha, chata e irritante!","name":"Monique Terra Fran\u00e7a","statuses_count":2286,"profile_sidebar_fill_color":"c6e6e2","id":56813846,"profile_background_tile":true,"utc_offset":-10800,"screen_name":"MoniqueeTerra"},"geo":null,"retweeted":false,"text":"e hoje eu entrei de f\u00e9rias oficialmente... era pra eu t\u00e1 feliz.. maas...","entities":{"hashtags":[],"urls":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:58:04 +0000 2010","place":null,"truncated":false,"id":12174010024464384,"in_reply_to_status_id":null},{"favorited":false,"in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12170841668190208","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"source":"web","in_reply_to_user_id_str":null,"user":{"statuses_count":4336,"profile_sidebar_border_color":"C0DEED","location":"Stockholm, Sweden","id_str":"63485337","time_zone":"Stockholm","profile_background_color":"C0DEED","lang":"en","verified":false,"friends_count":64,"url":"http:\/\/www.mojang.com\/notch\/","follow_request_sent":false,"profile_text_color":"333333","show_all_inline_media":false,"geo_enabled":true,"profile_use_background_image":true,"followers_count":54676,"following":true,"notifications":false,"profile_link_color":"0084B4","protected":false,"contributors_enabled":false,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","name":"Markus Persson","listed_count":1039,"profile_sidebar_fill_color":"DDEEF6","id":63485337,"profile_background_tile":false,"utc_offset":3600,"screen_name":"notch"},"retweeted_status":{"favorited":false,"in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12170737460711424","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"source":"\u003Ca href=\"http:\/\/twitter.com\/tweetbutton\" rel=\"nofollow\"\u003ETweet Button\u003C\/a\u003E","in_reply_to_user_id_str":null,"user":{"statuses_count":1847,"profile_sidebar_border_color":"C0DEED","location":"Sk\u00f6vde","id_str":"177564924","time_zone":"Stockholm","profile_background_color":"C0DEED","lang":"en","verified":false,"friends_count":110,"url":"http:\/\/www.minecraft.net","follow_request_sent":false,"profile_text_color":"333333","show_all_inline_media":false,"geo_enabled":false,"profile_use_background_image":true,"followers_count":1297,"following":false,"notifications":false,"profile_link_color":"0084B4","protected":false,"contributors_enabled":false,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1291163542\/images\/themes\/theme1\/bg.png","favourites_count":6,"created_at":"Thu Aug 12 13:35:50 +0000 2010","profile_image_url":"http:\/\/a2.twimg.com\/profile_images\/1101495498\/snygg_normal.jpg","description":"Working with Minecraft.net Founded the game company www.ludosity.com","name":"Daniel Kaplan","listed_count":60,"profile_sidebar_fill_color":"DDEEF6","id":177564924,"profile_background_tile":false,"utc_offset":3600,"screen_name":"Kappische"},"geo":null,"retweeted":false,"text":"We are still looking for developers and starting with interviews soon! Please apply and RT http:\/\/t.co\/LOPV6r7 via @notch","entities":{"hashtags":[],"urls":[{"expanded_url":"http:\/\/notch.tumblr.com\/post\/1689856266\/vi-soker-mer-folk","indices":[91,110],"url":"http:\/\/t.co\/LOPV6r7","display_url":"notch.tumblr.com\/post\/168985626\u2026"}],"user_mentions":[{"indices":[115,121],"id_str":"63485337","name":"Markus Persson","id":63485337,"screen_name":"notch"}]},"coordinates":null,"created_at":"Tue Dec 07 15:45:04 +0000 2010","place":null,"truncated":false,"id":12170737460711424,"in_reply_to_status_id":null},"geo":null,"retweeted":false,"text":"RT @Kappische: We are still looking for developers and starting with interviews soon! Please apply and RT http:\/\/t.co\/LOPV6r7 via @notch","entities":{"hashtags":[],"urls":[{"expanded_url":"http:\/\/notch.tumblr.com\/post\/1689856266\/vi-soker-mer-folk","indices":[106,125],"url":"http:\/\/t.co\/LOPV6r7","display_url":"notch.tumblr.com\/post\/168985626\u2026"}],"user_mentions":[{"indices":[3,13],"id_str":"177564924","name":"Daniel Kaplan","id":177564924,"screen_name":"Kappische"},{"indices":[130,136],"id_str":"63485337","name":"Markus Persson","id":63485337,"screen_name":"notch"}]},"coordinates":null,"created_at":"Tue Dec 07 15:45:29 +0000 2010","place":null,"truncated":false,"id":12170841668190208,"in_reply_to_status_id":null},{"entities":{"urls":[{"indices":[42,67],"expanded_url":null,"url":"http:\/\/bit.ly\/minediary10"}],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:27:02 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12166200033284097","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"listed_count":527,"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/105355452\/PC_Gamer_Twitter_02.png","favourites_count":0,"created_at":"Tue Oct 14 11:19:09 +0000 2008","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/932843912\/PCGamer_88px_normal.png","description":"The global authority on PC games.","profile_sidebar_fill_color":"e6e6e6","profile_background_tile":false,"screen_name":"PC_Gamer","geo_enabled":false,"profile_sidebar_border_color":"939598","contributors_enabled":false,"location":"Bath","id_str":"16736535","statuses_count":1252,"time_zone":"London","profile_background_color":"ffffff","follow_request_sent":false,"lang":"en","protected":false,"url":"http:\/\/www.pcgamer.com","friends_count":6048,"profile_text_color":"000f18","name":"PC Gamer","profile_use_background_image":true,"followers_count":9409,"id":16736535,"show_all_inline_media":false,"following":true,"verified":false,"notifications":false,"utc_offset":0,"profile_link_color":"dc1e25"},"geo":null,"retweeted":false,"id":12166200033284097,"text":"Day 10 of the Minecraft Experiment is up: http:\/\/bit.ly\/minediary10 The experiment is going to hell."},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:22:22 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12165025150013440","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/166735774\/1194290503251_2_.png","favourites_count":14,"created_at":"Thu Aug 06 18:15:44 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/1144405683\/chacara_pedro_cortada_normal.jpg","description":"","listed_count":7,"profile_sidebar_fill_color":"ffaa00","profile_background_tile":false,"screen_name":"gabriel_jensen","verified":false,"profile_sidebar_border_color":"fff30a","show_all_inline_media":false,"geo_enabled":false,"location":"Sorocaba - SP Brasil","id_str":"63497386","contributors_enabled":false,"time_zone":"Brasilia","profile_background_color":"000000","lang":"en","protected":false,"url":null,"follow_request_sent":false,"profile_text_color":"333333","name":"Gabriel Jensen","profile_use_background_image":true,"friends_count":169,"followers_count":149,"id":63497386,"statuses_count":3370,"following":false,"notifications":false,"utc_offset":-10800,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12165025150013440,"text":"F\u00c9RIAS"},{"entities":{"urls":[],"hashtags":[{"indices":[87,94],"text":"Partiu"}],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:20:57 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12164666599931904","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"show_all_inline_media":false,"geo_enabled":true,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1291163542\/images\/themes\/theme14\/bg.gif","favourites_count":0,"created_at":"Sat Jul 31 05:21:31 +0000 2010","profile_image_url":"http:\/\/a1.twimg.com\/profile_images\/1131812097\/tw_normal.png","description":"","follow_request_sent":false,"profile_sidebar_fill_color":"0a0c4f","profile_background_tile":true,"friends_count":33,"screen_name":"renatojensen","profile_sidebar_border_color":"194b73","listed_count":1,"statuses_count":148,"location":"Sorocaba, SP","id_str":"173014037","time_zone":"Brasilia","profile_background_color":"131516","lang":"en","protected":false,"url":null,"contributors_enabled":false,"profile_text_color":"127394","name":"Renato J. F.","verified":false,"profile_use_background_image":true,"followers_count":38,"id":173014037,"following":false,"notifications":false,"utc_offset":-10800,"profile_link_color":"009999"},"geo":null,"retweeted":false,"id":12164666599931904,"text":"Indo pra Nostravamus terminar esse trabalho fedido de ED2 estudar pra provinha amanh\u00e3! #Partiu"},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:16:50 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"\u003Ca href=\"http:\/\/twitter.com\/\" rel=\"nofollow\"\u003ETwitter for iPhone\u003C\/a\u003E","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12163633094070273","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/178612920\/paisagem_neve.gif","favourites_count":0,"created_at":"Mon Dec 06 02:05:28 +0000 2010","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/1183565563\/gui_normal.jpg","description":"","profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"malvinius","statuses_count":5,"profile_sidebar_border_color":"C0DEED","contributors_enabled":false,"follow_request_sent":false,"location":"Brasil","id_str":"223325020","time_zone":null,"profile_background_color":"C0DEED","lang":"en","verified":false,"protected":false,"url":null,"friends_count":50,"profile_text_color":"333333","name":"Guilherme Santos","show_all_inline_media":false,"listed_count":0,"geo_enabled":false,"profile_use_background_image":true,"followers_count":16,"id":223325020,"following":true,"notifications":false,"utc_offset":null,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12163633094070273,"text":"Estudarrrr para as ultimas provas, cansado"},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 15:04:34 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12160542923825152","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"profile_background_image_url":"http:\/\/a1.twimg.com\/profile_background_images\/86562452\/free_twitter_designer.jpg","favourites_count":7,"created_at":"Tue May 26 01:03:52 +0000 2009","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/1044754620\/bowsrt_normal.JPG","description":"Venho do surfe, que tem uma malandragem, que tem g\u00edrias, papos maneiros. Onde \u00e9 a festa? Com o Feffy a festa \u00e9 BEM AQUI.","profile_sidebar_fill_color":"dbd4d4","profile_background_tile":false,"screen_name":"Feannor","statuses_count":5746,"profile_sidebar_border_color":"000000","follow_request_sent":false,"contributors_enabled":false,"location":"","id_str":"42529765","time_zone":"Brasilia","friends_count":106,"profile_background_color":"ffffff","lang":"en","verified":false,"protected":false,"url":null,"profile_text_color":"000000","name":"Antonio Z. Junior","show_all_inline_media":false,"listed_count":4,"geo_enabled":false,"profile_use_background_image":true,"followers_count":127,"id":42529765,"following":true,"notifications":false,"utc_offset":-10800,"profile_link_color":"93A644"},"geo":null,"retweeted":false,"id":12160542923825152,"text":"Meu senso de humor \u00e9 FINO demais pra todos voc\u00eas."},{"entities":{"urls":[],"hashtags":[{"indices":[5,10],"text":"IGAs"}],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 14:49:18 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12156701931208705","contributors":null,"retweet_count":0,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"contributors_enabled":false,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","listed_count":1039,"profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"notch","statuses_count":4321,"profile_sidebar_border_color":"C0DEED","location":"Stockholm, Sweden","id_str":"63485337","time_zone":"Stockholm","profile_background_color":"C0DEED","lang":"en","verified":false,"friends_count":64,"protected":false,"url":"http:\/\/www.mojang.com\/notch\/","follow_request_sent":false,"profile_text_color":"333333","name":"Markus Persson","show_all_inline_media":false,"geo_enabled":true,"profile_use_background_image":true,"followers_count":54664,"id":63485337,"following":false,"notifications":false,"utc_offset":3600,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12156701931208705,"text":"Hey, #IGAs, if I'm not allowed to vote, just -1 Minecraft. ;)"},{"entities":{"hashtags":[{"indices":[27,37],"text":"Minecraft"},{"indices":[44,49],"text":"IGAs"}],"urls":[{"indices":[97,117],"expanded_url":null,"url":"http:\/\/bit.ly\/IGAs10"}],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 14:38:30 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"\u003Ca href=\"http:\/\/iga.machinima.com\" rel=\"nofollow\"\u003EInside Gaming Awards\u003C\/a\u003E","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12153984638779392","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"show_all_inline_media":false,"geo_enabled":true,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","contributors_enabled":false,"profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"notch","follow_request_sent":false,"profile_sidebar_border_color":"C0DEED","friends_count":64,"statuses_count":4338,"location":"Stockholm, Sweden","id_str":"63485337","time_zone":"Stockholm","profile_background_color":"C0DEED","listed_count":1040,"lang":"en","protected":false,"url":"http:\/\/www.mojang.com\/notch\/","profile_text_color":"333333","name":"Markus Persson","verified":false,"profile_use_background_image":true,"followers_count":54683,"id":63485337,"following":true,"notifications":false,"utc_offset":3600,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12153984638779392,"text":"I just voted for Minecraft #Minecraft as my #IGAs Game of the Year! Vote for your favorite now!\n\nhttp:\/\/bit.ly\/IGAs10"},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 13:29:15 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12136559650283521","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"contributors_enabled":false,"profile_background_image_url":"http:\/\/a3.twimg.com\/profile_background_images\/69849345\/NOVA.JPG","favourites_count":1,"created_at":"Fri Sep 11 01:52:13 +0000 2009","profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/416961356\/soh_normal.JPG","description":"","profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"Adrianoesposito","statuses_count":151,"profile_sidebar_border_color":"C0DEED","location":"Brasil","id_str":"73279583","follow_request_sent":false,"time_zone":"Brasilia","profile_background_color":"C0DEED","lang":"en","verified":false,"friends_count":49,"protected":false,"url":null,"profile_text_color":"333333","name":"Adriano Esposito","show_all_inline_media":false,"geo_enabled":false,"profile_use_background_image":true,"followers_count":30,"id":73279583,"listed_count":0,"following":true,"notifications":false,"utc_offset":-10800,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12136559650283521,"text":"PQP que blza professor nao poem a nota na internet e dai vo ter que ir para barueri so para te ctza que passei na materia....."},{"entities":{"urls":[{"indices":[0,19],"url":"http:\/\/kingo.to\/nxG","expanded_url":null}],"hashtags":[],"user_mentions":[{"indices":[37,47],"screen_name":"tecnoblog","name":"Tecnoblog","id":16008305,"id_str":"16008305"}]},"coordinates":null,"in_reply_to_screen_name":null,"in_reply_to_user_id":null,"created_at":"Tue Dec 07 13:02:56 +0000 2010","in_reply_to_status_id_str":null,"place":null,"contributors":null,"retweet_count":null,"in_reply_to_user_id_str":null,"retweeted":false,"in_reply_to_status_id":null,"source":"web","truncated":false,"user":{"created_at":"Thu Apr 29 03:33:13 +0000 2010","profile_image_url":"http:\/\/a1.twimg.com\/profile_images\/1132436089\/AceFlagA2_normal.jpg","description":"","follow_request_sent":false,"time_zone":"Brasilia","profile_background_color":"C0DEED","verified":false,"friends_count":57,"followers_count":17,"screen_name":"MarianaLMartini","profile_text_color":"333333","show_all_inline_media":false,"geo_enabled":false,"profile_use_background_image":true,"listed_count":1,"profile_link_color":"0084B4","location":"Brasil","profile_background_image_url":"http:\/\/s.twimg.com\/a\/1291318259\/images\/themes\/theme1\/bg.png","favourites_count":19,"lang":"en","profile_sidebar_fill_color":"DDEEF6","protected":false,"url":null,"profile_background_tile":false,"name":"Mariana L. Martini","statuses_count":34,"profile_sidebar_border_color":"C0DEED","id":138283102,"id_str":"138283102","contributors_enabled":false,"following":true,"notifications":false,"utc_offset":-10800},"geo":null,"favorited":false,"id":12129936844259329,"id_str":"12129936844259329","text":"http:\/\/kingo.to\/nxG - Deu a Louca no @tecnoblog: iPad 16GB Wi-Fi di gr\u00e1tis! (rt para concorrer)"},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 12:54:53 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"web","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12127909502259200","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","listed_count":1037,"profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"notch","verified":false,"profile_sidebar_border_color":"C0DEED","show_all_inline_media":false,"geo_enabled":true,"location":"Stockholm, Sweden","id_str":"63485337","contributors_enabled":false,"time_zone":"Stockholm","profile_background_color":"C0DEED","lang":"en","protected":false,"url":"http:\/\/www.mojang.com\/notch\/","follow_request_sent":false,"profile_text_color":"333333","name":"Markus Persson","profile_use_background_image":true,"friends_count":64,"followers_count":54645,"id":63485337,"statuses_count":4309,"following":true,"notifications":false,"utc_offset":3600,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12127909502259200,"text":"I have no idea how capes will work.. we've got some ideas, but for now it's only for mojang employees. It's implemented much like skins are."},{"entities":{"urls":[{"indices":[0,22],"url":"http:\/\/imgur.com\/0E0zn","expanded_url":null}],"hashtags":[],"user_mentions":[]},"coordinates":null,"in_reply_to_screen_name":null,"in_reply_to_user_id":null,"created_at":"Tue Dec 07 12:51:43 +0000 2010","in_reply_to_status_id_str":null,"place":null,"contributors":null,"retweet_count":null,"in_reply_to_user_id_str":null,"retweeted":false,"in_reply_to_status_id":null,"source":"web","truncated":false,"user":{"listed_count":1040,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","time_zone":"Stockholm","profile_background_color":"C0DEED","verified":false,"followers_count":54720,"screen_name":"notch","profile_text_color":"333333","show_all_inline_media":false,"geo_enabled":true,"profile_use_background_image":true,"contributors_enabled":false,"profile_link_color":"0084B4","location":"Stockholm, Sweden","profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"follow_request_sent":false,"lang":"en","profile_sidebar_fill_color":"DDEEF6","protected":false,"url":"http:\/\/www.mojang.com\/notch\/","profile_background_tile":false,"friends_count":64,"name":"Markus Persson","statuses_count":4338,"profile_sidebar_border_color":"C0DEED","id":63485337,"id_str":"63485337","following":true,"notifications":false,"utc_offset":3600},"geo":null,"favorited":false,"id":12127113029095424,"id_str":"12127113029095424","text":"http:\/\/imgur.com\/0E0zn"},{"entities":{"urls":[],"user_mentions":[],"hashtags":[]},"coordinates":null,"created_at":"Tue Dec 07 10:10:29 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"\u003Ca href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12086536195538944","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"contributors_enabled":false,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","listed_count":1039,"profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"notch","statuses_count":4324,"profile_sidebar_border_color":"C0DEED","location":"Stockholm, Sweden","id_str":"63485337","time_zone":"Stockholm","profile_background_color":"C0DEED","lang":"en","verified":false,"friends_count":64,"protected":false,"url":"http:\/\/www.mojang.com\/notch\/","follow_request_sent":false,"profile_text_color":"333333","name":"Markus Persson","show_all_inline_media":false,"geo_enabled":true,"profile_use_background_image":true,"followers_count":54669,"id":63485337,"following":true,"notifications":false,"utc_offset":3600,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12086536195538944,"text":"If Richard D James and would start playing Minecraft, I would be complete."},{"entities":{"urls":[],"hashtags":[],"user_mentions":[]},"coordinates":null,"created_at":"Tue Dec 07 10:09:11 +0000 2010","place":null,"truncated":false,"in_reply_to_status_id":null,"favorited":false,"source":"\u003Ca href=\"http:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003ETwitter for Android\u003C\/a\u003E","in_reply_to_screen_name":null,"in_reply_to_status_id_str":null,"id_str":"12086209413120000","contributors":null,"retweet_count":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"user":{"listed_count":1035,"profile_background_image_url":"http:\/\/s.twimg.com\/a\/1290538325\/images\/themes\/theme1\/bg.png","favourites_count":0,"created_at":"Thu Aug 06 17:08:06 +0000 2009","profile_image_url":"http:\/\/a3.twimg.com\/profile_images\/351255055\/mojangbutton_normal.gif","description":"Up and coming indie game developer, developer of Minecraft","profile_sidebar_fill_color":"DDEEF6","profile_background_tile":false,"screen_name":"notch","geo_enabled":true,"profile_sidebar_border_color":"C0DEED","contributors_enabled":false,"location":"Stockholm, Sweden","id_str":"63485337","statuses_count":4295,"time_zone":"Stockholm","profile_background_color":"C0DEED","follow_request_sent":false,"lang":"en","protected":false,"url":"http:\/\/www.mojang.com\/notch\/","friends_count":64,"profile_text_color":"333333","name":"Markus Persson","profile_use_background_image":true,"followers_count":54622,"id":63485337,"show_all_inline_media":false,"following":false,"verified":false,"notifications":false,"utc_offset":3600,"profile_link_color":"0084B4"},"geo":null,"retweeted":false,"id":12086209413120000,"text":"I love deadmau5's new album! I think I've heard some of the songs before, though."}], 1);
+      twttr.API._requestCache.inject("account/settings", [{}], {"sleep_time":{"end_time":null,"start_time":null,"enabled":false},"geo_enabled":true}, 1);
+      twttr.API._requestCache.inject("trends/current", [{'pc': true}], {'trends': {'current_trends': [{"query":"Inception Blu-ray","promoted_content":{"description":"","advertiser_name":null,"user":{"name":"Warner Bros.","id":23990483},"id":100,"promoted_trend_id":100},"events":{"click_url":"http:\/\/api.twitter.com\/1\/promoted_content\/c\/log.json?promoted_trend_id=100","impression_url":"http:\/\/api.twitter.com\/1\/promoted_content\/i\/log.json?promoted_trend_id=100"},"url":"http:\/\/twitter.com\/search?q=Inception+Blu-ray","name":"Inception Blu-ray"},{"url":"http:\/\/search.twitter.com\/search?q=%23lemmeguess","name":"#lemmeguess"},{"url":"http:\/\/search.twitter.com\/search?q=%23alliwant","name":"#alliwant"},{"url":"http:\/\/search.twitter.com\/search?q=Pearl+Harbor","name":"Pearl Harbor"},{"url":"http:\/\/search.twitter.com\/search?q=%23df10","name":"#df10"},{"url":"http:\/\/search.twitter.com\/search?q=Pathan","name":"Pathan"},{"url":"http:\/\/search.twitter.com\/search?q=Albert+Haynesworth","name":"Albert Haynesworth"},{"url":"http:\/\/search.twitter.com\/search?q=Elizabeth+Edwards","name":"Elizabeth Edwards"},{"url":"http:\/\/search.twitter.com\/search?q=Yusuf","name":"Yusuf"},{"url":"http:\/\/search.twitter.com\/search?q=Rubin","name":"Rubin"}]}}, 1);
+      twttr.API._requestCache.inject("promos/random", [{}], {"promo":{"name":"Twitter for iPhone","promo_type":"","promo_contents":"\u003Ca href=\"http:\/\/itunes.apple.com\/app\/twitter\/id333903271?mt=8\" class=\"definition\" onClick=\"javascript: pageTracker._trackPageview('\/definition\/iphone');\"\u003E\u003Cstrong\u003ETwitter&middot;for&middot;iPhone\u003C\/strong\u003E\u003C\/a\u003E\u003Cem\u003En.\u003C\/em\u003E the official Twitter app for iPhone.","created_at":"Wed May 19 18:50:09 +0000 2010","updated_at":"Thu Sep 02 17:26:14 +0000 2010","id":73,"is_sponsored":false,"is_active":true,"locale":"en"}}, 1);
+      } else {
+      twttr.loggedIn = false;
+    }
+
+    twttr.recentPlaces = [];
+
+    twttr.extendAPI();
+  }
+
+  /* -------------------- Init CurrentUser Method -------------------- */
+
+  var _initCurrentUser = function() {
+
+    if(twttr.loggedIn) {
+      twttr.API.User.current({
+        //pull from current user loaded server side
+        useRequestCache: true,
+
+        success: function (user) {
+          twttr.currentUser = user;
+          twttr.currentUser.sync("deviceSetup", false);
+          twttr.currentUser.sync("emailAddress", "cloudst69@gmail.com");
+          twttr.currentUser.sync("deviceAddress", false);
+          twttr.currentUser.sync("emailDiscoverabilitySet", true);
+          twttr.currentUser.sync("discoverableByEmail", false);
+          twttr.currentUser.sync("mobilePhoneDiscoverabilitySet", false);
+          twttr.currentUser.sync("discoverableByMobilePhone", false);
+          twttr.loggedIn = true;
+          twttr.loaded();
+        },
+
+        error: function () {
+          twttr.loggedIn = false;
+          twttr.loaded();
+        }
+      });
+    }
+    else {
+      twttr.loaded();
+    }
+
+  };
+
+
+  /* -------------------- Setting up Domains -------------------- */
+
+
+
+
+
+  twttr.proto = window.location.protocol.match(/s\:$/) ? 'https' : 'http';
+
+  twttr.domains = {
+    local: 'twitter.com',
+    remote: 'api.twitter.com'
+  }
+
+  var match = window.location.hostname.match(/^(staging\d+\.local)\.twitter\.com$/i);
+
+  if (match) {
+    twttr.domains.local = match[1] + '.twitter.com';
+    twttr.domains.remote = 'api-' + match[1] + '.twitter.com'
+  }
+
+  if (document.location.hostname === "localhost.twitter.com") {
+    twttr.domains.local = 'localhost.twitter.com:3000';
+      twttr.domains.remote = 'api.localhost.twitter.com:3000';
+    }
+
+  twttr.hosts = {
+    local: twttr.proto + "://" + twttr.domains.local,
+    remote: twttr.proto + "://" + twttr.domains.remote
+  };
+
+  var pReceiverURL = twttr.hosts.remote + '/p_receiver.html';
+
+  /* -------------------- Iframe Creator Method -------------------- */
+
+  var userAgent = navigator.userAgent.toLowerCase();
+  var isIE = (/msie/gi.test( userAgent ) && !/opera/gi.test( userAgent ));
+  var IFRAME_TEMPLATE = '<iframe tabindex="-1" role="presentation" style="position:absolute;top:-9999px;" src="' + pReceiverURL + '"></iframe>';
+
+  function _bind(scope, fn) {
+    return function() {
+      return fn.apply(scope, arguments);
+    };
+  }
+
+  function createIFrame(complete) {
+
+    var frag = document.createElement('div');
+    frag.innerHTML = IFRAME_TEMPLATE;
+
+    var iframe = frag.firstChild;
+    var fnComplete = function() {
+          complete.apply(iframe, arguments);
+        };
+
+    if (isIE) {
+      var loaded = false;
+
+      iframe.attachEvent('onload', function() {
+        if (loaded) {
+          return;
+        }
+
+        loaded = true;
+
+        fnComplete();
+      });
+    } else {
+      iframe.addEventListener('load', fnComplete, false);
+    }
+
+    //  Avoid "operation aborted" error in IE that can be caused by
+    //  appending a new element to the body via body.appendChild
+    //  by a script that is not a direct descendant of the <body>.
+
+    document.body.insertBefore(iframe, document.body.firstChild);
+
+    return iframe;
+  }
+
+  var _dependencyReady = (function() {
+    var waitingFor = 2;
+    return function() {
+      waitingFor--;
+      if (waitingFor > 0) {
+        return;
+      }
+
+      var remoteWindow = twttr.anywhere.remote.server.contentWindow;
+      remoteWindow.jQuery = remoteWindow.$ = window.jQuery;
+      remoteWindow.JSON = window.JSON;
+      remoteWindow.onJQueryLoaded();
+    };
+  }());
+
+  /* -------------------- Start Asset Fetching -------------------- */
+
+  var baseLab = $LAB;
+
+  baseLab
+    .wait(function() {
+
+      /* -------------------- fetch phoenix assets -------------------- */
+
+      var phxLab = $LAB;
+
+      phxLab
+        .script("http://a1.twimg.com/a/1291743327/javascripts/phoenix.bundle.js")
+        .wait(function() {
+          _dependencyReady();
+          twttr.loaded();
+        });
+
+
+      /* -------------------- fetch api assets -------------------- */
+      var apiLab = $LAB;
+
+      apiLab
+        .script("http://a3.twimg.com/a/1291743327/javascripts/api.bundle.js")
+        .wait(function() {
+
+          twttr.anywhere = twttr.anywhere || {};
+          twttr.anywhere.remote = twttr.anywhere.remote || {};
+
+          _initAPI();
+
+          /* -------------------- create remote iframe -------------------- */
+
+          createIFrame(function() {
+            var that = this;
+
+            function thing() {
+              twttr.anywhere.remote.server = this;
+
+              if (this.contentWindow.ready) {
+                _initCurrentUser();
+                _dependencyReady();
+              } else if (this.contentWindow.addCallback) {
+                this.contentWindow.addCallback(_initCurrentUser);
+                _dependencyReady();
+              } else {
+                thing.call(that);
+              }
+            }
+
+            thing.call(this);
+          });
+        });
+
+    });
+
+</script>
+
+<!--[if lte IE 6]>
+<script src="http://a1.twimg.com/a/1291743327/javascripts/phoenix/phxie6.bundle.js"></script>
+<![endif]-->
+
+    </body>
+
+</html>
